@@ -1,0 +1,7 @@
+[
+    {"userId":1001, "name":"Jhon Doe", "email":"jhd@mail.com"},
+    {"userId":1002, "name":"Thomas Abraham", "email":"athomas@mail.com"},
+    {"userId":1003, "name":"Brita Rodgerius", "email":"brodgerious@mail.com"},
+    {"userId":1004, "name":"Dannial Smith", "email":"dsmith@mail.com"},
+    {"userId":1005, "name":"Vadiraj Karanam", "email":"vkaranam@mail.com"}
+]
