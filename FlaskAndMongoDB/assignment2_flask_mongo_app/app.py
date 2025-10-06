@@ -9,12 +9,16 @@ def form():
     error = None
     if request.method == "POST":
         try:
-            data = {
-                "name": request.form["name"],
-                "email": request.form["email"]
-            }
-            collection.insert_one(data)
-            return redirect(url_for("success"))
+            existingUser = collection.find_one({"email":request.form["email"]})
+            if existingUser:
+                error = "Email already registered."
+            else:
+                data = {
+                    "name": request.form["name"],
+                    "email": request.form["email"]
+                }
+                collection.insert_one(data)
+                return redirect(url_for("success"))
         except PyMongoError as e:
             error = f"Error submitting data: {str(e)}"
     return render_template("form.html", error=error)
