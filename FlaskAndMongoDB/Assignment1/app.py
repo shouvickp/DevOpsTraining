@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import json
 
 app=Flask(__name__)
@@ -10,11 +10,11 @@ def home():
 @app.route("/api")
 def userList():
     try:
-        with open("users.json", "r") as f:
+        with open("users1.json", "r") as f:
             data = json.load(f)
-            return data
+            return jsonify(data), 200
     except FileNotFoundError:
-        return "No data Found"
+        return jsonify({'error': "No data Found"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
